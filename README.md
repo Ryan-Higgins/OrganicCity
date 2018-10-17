@@ -1,5 +1,5 @@
 # OrganicCity
-A procedural generated city that grows and changes organically over time. 
+A procedural generated city that grows and changes organically over time. The buildings grow and change depending on those around them and the general growth of the city affects the envrionment around it.
 
 # My Vision
 I initally set out with the goal of building a city generator that would build everything randomnly according to a set a pre-defined rules. The buildings would vary in size, height and density and the road network would change according to where the buildings were and how they built. I wanted something more than that though and decided on bringing the city to life, literally. I wanted the city to grow and develop and impact other buildings around it as well as have a green space or envrionment that would evolve alongside the city. The rules that would govern this evolution would be similar to [Conway's Game of Life](http://www.conwaylife.com/w/index.php?title=Conway%27s_Game_of_Life) in the sense that there would be a set of rules that would dictate the dynamic of how the city would grow and develop.
