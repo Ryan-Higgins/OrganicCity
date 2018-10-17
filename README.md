@@ -32,3 +32,5 @@ The behaviour of the algorithm can be visualised by turning on the debug view in
 Source:https://pjreddie.com/projects/procedural-city-generation/
   
 The other city generator I found was a 3D one which focused more on the buildings than the roads, dividing an area into sectors and then subdividing those sectors and applying rules onto them to decide the height, size, light number and density of the buildings. The divisions of the sectors was done using randomnly placed control points and these formed the roads and then things such as stop signs and traffic lights were added around their cities.
+
+After looking at these two projects I felt I had a reasonable start point, I know how I wanted the city to grow and evolve and as a side-effect how the envrionment around it would change and develop, I also have an idea of the maths behind actually generating the city and how to map out the buildings and the roads themselves.
