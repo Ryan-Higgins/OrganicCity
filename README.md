@@ -4,6 +4,8 @@ A procedural generated city that grows and changes organically over time. The bu
 # My Vision
 I initally set out with the goal of building a city generator that would build everything randomnly according to a set a pre-defined rules. The buildings would vary in size, height and density and the road network would change according to where the buildings were and how they built. I wanted something more than that though and decided on bringing the city to life, literally. I wanted the city to grow and develop and impact other buildings around it as well as have a green space or envrionment that would evolve alongside the city. The rules that would govern this evolution would be similar to [Conway's Game of Life](http://www.conwaylife.com/w/index.php?title=Conway%27s_Game_of_Life) in the sense that there would be a set of rules that would dictate the dynamic of how the city would grow and develop.
 
+![](Photos/2D%20City.png)
+
 The first thing I did after deciding on my idea was to start researching other city generators that already exist and see how they achieved their generation. The first one I came accross was a simple 2D generator that generactes roads and buildings. The roads can form into intersections and junctions and those affect roads around them by lengthing or shortening them depending on the nearest juntion or intersection. Then the population density would also be taken into account when the road was making a decision of where to extend to. The A* was used for pathfinding and the algorithm below was the driving force behind the generation.
 
 Source:https://www.tmwhere.com/city_generation.html
