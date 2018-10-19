@@ -27,7 +27,7 @@ until Q is empty
 
 *The behaviour of the algorithm can be visualised by turning on the debug view in the demonstration above. The highlighted path shows the order that segments are placed. Segments can be seen branching out from the main highways, and merging with parallel areas of growth as dictated by the local constraints. The consequence of queueing the segments by ti can also be seen, causing the network to grow roughly uniformly across its circumference and leaving no dangling segment inactive for long."*
 
-[City](https://pjreddie.com/media/image/Screen_shot_2011-01-27_at_5.19.50_PM.png)
+![City](Photos/City.png)
 
 Source:https://pjreddie.com/projects/procedural-city-generation/
   
