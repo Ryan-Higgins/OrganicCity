@@ -8,34 +8,43 @@ using Random = UnityEngine.Random;
 public class RoadBuilder : MonoBehaviour
 {
 	public GameObject roadPrefab;
-	//public GameObject plane;
+	//public GameObject roadStartPrefab;
+	public static int roadCount;
+	public int roadLimit;
 
 	private Vector3 startPosition;
 	private int shouldITurn;
+	private Vector3 offset;
 	
 	// Use this for initialization
-	void Start () {
-	
-		
-		startPosition = new Vector3(-50,0.1f,-50);
-		Quaternion roadTurn = new Quaternion(roadPrefab.transform.rotation.x, roadPrefab.transform.rotation.y + 90, roadPrefab.transform.rotation.z, roadPrefab.transform.rotation.w);
-		
-		for(int i = 0; i <= 90; i +=10)
+	void Start ()
+	{
+		GameObject roadPrefabClone = roadPrefab;
+		print(roadCount);	
+		if (roadCount <= roadLimit && roadCount > 0)
 		{
-			Vector3 offset = new Vector3(0,0,i);
-			//print(i);
-			GameObject roadPrefabClone = roadPrefab;
-			Instantiate(roadPrefabClone, startPosition + offset, roadPrefabClone.transform.rotation);
-			shouldITurn = Random.Range(0, 3);
-			print(shouldITurn);
+			offset = transform.forward * 10;
+			shouldITurn = Random.Range(0, 8);
+			Instantiate(roadPrefabClone, gameObject.transform.position + offset, gameObject.transform.rotation);
+			
+			roadCount++;
+
 			if (shouldITurn == 1)
 			{
-				roadPrefabClone.transform.Rotate(0,90,0);
-				offset = new Vector3(0,0,i + 10);
-				Instantiate(roadPrefabClone, startPosition + offset, roadPrefabClone.transform.rotation);
-				roadPrefabClone.transform.Rotate(0,-90,0);
+				//GameObject startPrefabClone = roadStartPrefab;
+				//startPrefabClone.transform.Rotate(0, 90, 0);
+				roadPrefabClone.transform.Rotate(0, 90, 0);
+				Instantiate(roadPrefabClone, gameObject.transform.position + offset,
+					roadPrefabClone.transform.rotation);
+				roadPrefabClone.transform.Rotate(0, -90, 0);
+				
+				roadCount++;
 			}
+
 		}
+
+		gameObject.name = "Road";
+		gameObject.transform.SetParent(GameObject.Find("Road Control").GetComponent<Transform>());
 	}
 	
 	// Update is called once per frame
