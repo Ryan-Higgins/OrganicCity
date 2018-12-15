@@ -7,10 +7,8 @@
     <e p="C:\Users\Admin\Documents\Repositeries\OrganicCity\Organic City" t="IncludeRecursive">
       <e p="Assembly-CSharp.csproj" t="IncludeRecursive" />
       <e p="Assets" t="Include">
-        <e p="BuildingGenerator.cs" t="Include" />
-        <e p="Delete.cs" t="Include" />
+        <e p="BuildingCount.cs" t="Include" />
         <e p="GridBuilder.cs" t="Include" />
-        <e p="RoadStart.cs" t="Include" />
         <e p="Scripts" t="Include">
           <e p="RoadBuilder.cs" t="Include" />
         </e>
