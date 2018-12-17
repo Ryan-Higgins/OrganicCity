@@ -1,10 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ContentModelStore">
-    <e p="C:\Users\Admin\.Rider2018.2\config\extensions" t="IncludeRecursive" />
-    <e p="C:\Users\Admin\.Rider2018.2\system\extResources" t="IncludeRecursive" />
-    <e p="C:\Users\Admin\.Rider2018.2\system\resharper-host\Local\Transient\ReSharperHost\v182\SolutionCaches\_Organic City.-185811946.00" t="ExcludeRecursive" />
-    <e p="C:\Users\Admin\Documents\Repositeries\OrganicCity\Organic City" t="IncludeRecursive">
+    <e p="C:\Users\Ryan\.Rider2018.2\system\extResources" t="IncludeRecursive" />
+    <e p="C:\Users\Ryan\.Rider2018.2\system\resharper-host\Local\Transient\ReSharperHost\v182\SolutionCaches\_Organic City.-1630989505.00" t="ExcludeRecursive" />
+    <e p="G:\Repositories\OrganicCity\Organic City" t="IncludeRecursive">
       <e p="Assembly-CSharp.csproj" t="IncludeRecursive" />
       <e p="Assets" t="Include">
         <e p="BuildingCount.cs" t="Include" />

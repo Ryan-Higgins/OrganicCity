@@ -9,6 +9,8 @@ public class GridBuilder : MonoBehaviour
 	public int colCount;
 	public GameObject buildingPrefab;
 	public GameObject roadPrefab;
+	public GameObject buildingParent;
+	public GameObject roadParent;
 	
 	private int cellWidth;
 	private bool[,] cityGrid;
@@ -34,15 +36,18 @@ public class GridBuilder : MonoBehaviour
 
 				if (cityGrid[i, j])
 				{
-					Instantiate(buildingPrefab,new Vector3(gameObject.transform.position.x + j * cellWidth
+					
+					GameObject buildingClone = Instantiate(buildingPrefab,new Vector3(gameObject.transform.position.x + j * cellWidth
 						, 5, gameObject.transform.position.z - i * cellWidth)
 						, gameObject.transform.rotation);
+					buildingClone.transform.parent = buildingParent.transform;
 				}
 				else
 				{
-					Instantiate(roadPrefab,new Vector3(gameObject.transform.position.x + j * cellWidth
+					GameObject roadClone = Instantiate(roadPrefab,new Vector3(gameObject.transform.position.x + j * cellWidth
 						, 0, gameObject.transform.position.z - i * cellWidth)
 						, gameObject.transform.rotation);
+					roadClone.transform.parent = roadParent.transform;
 				}
 			}
 		}
