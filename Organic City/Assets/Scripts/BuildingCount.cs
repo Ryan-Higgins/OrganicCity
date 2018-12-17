@@ -14,6 +14,15 @@ public class BuildingCount : MonoBehaviour
 	public bool hasAddedBotLeft;
 	public bool hasAddedLeft;
 	public bool hasAddedTopLeft;
+
+/*	public static bool topFree;
+	public static bool topRightFree;
+	public static bool rightFree;
+	public static bool botRightFree;
+	public static bool botFree;
+	public static bool botLeftFree;*/
+	
+	
 	
 	public List<GameObject> otherBuildings;
 	//public static int buildingCounter;
@@ -34,7 +43,7 @@ public class BuildingCount : MonoBehaviour
 	}
 	
 	// Update is called once per frame
-	void Update ()
+	void FixedUpdate ()
 	{
 		RaycastHit hit;
 
