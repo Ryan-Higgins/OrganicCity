@@ -39,6 +39,7 @@ GameObject:
   - component: {fileID: 4582684850149476}
   - component: {fileID: 54468930121566622}
   - component: {fileID: 114004390177383714}
+  - component: {fileID: 114672515006001300}
   m_Layer: 0
   m_Name: Building
   m_TagString: Building
@@ -128,7 +129,7 @@ Rigidbody:
   m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 126
   m_CollisionDetection: 0
 --- !u!65 &65202070487234364
 BoxCollider:
@@ -161,4 +162,15 @@ MonoBehaviour:
   hasAddedBotLeft: 0
   hasAddedLeft: 0
   hasAddedTopLeft: 0
-  otherBuildings: []
+--- !u!114 &114672515006001300
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1810746079355886}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d5385f55be4b92845b05baac5034170e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  buildingCount: 0

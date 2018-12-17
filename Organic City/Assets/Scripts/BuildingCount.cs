@@ -16,6 +16,7 @@ public class BuildingCount : MonoBehaviour
 	public bool hasAddedTopLeft;
 	
 	public List<GameObject> otherBuildings;
+	//public static int buildingCounter;
 	
 	// Use this for initialization
 	void Start ()
@@ -51,7 +52,7 @@ public class BuildingCount : MonoBehaviour
 		Ray left = new Ray(transform.position, Vector3.left);
 		Ray upLeft = new Ray(transform.position, topLeft);
 		
-		Debug.DrawRay(transform.position, topRight, Color.red);
+		//Debug.DrawRay(transform.position, topRight, Color.red);
 
 		if (Physics.Raycast(up, out hit, transform.localScale.x) && !hasAddedTop)
 		{
@@ -86,5 +87,7 @@ public class BuildingCount : MonoBehaviour
 			hasAddedTopLeft = true;
 			otherBuildings.Add(hit.transform.gameObject);
 		}
+
+		//buildingCounter = otherBuildings.Count;
 	}
 }

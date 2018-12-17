@@ -252,8 +252,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9e76dd2a814eea743afa5408abc308cb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rowCount: 40
-  colCount: 40
+  rowCount: 10
+  colCount: 10
   buildingPrefab: {fileID: 1810746079355886, guid: b882bcaabdc39de47b9a22ad5ba48e3e,
     type: 2}
   roadPrefab: {fileID: 1306725755960842, guid: 2c72c49eac68c2e4f8c240ab32b82072, type: 2}
