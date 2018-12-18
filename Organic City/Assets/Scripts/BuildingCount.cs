@@ -14,20 +14,9 @@ public class BuildingCount : MonoBehaviour
 	public bool hasAddedBotLeft;
 	public bool hasAddedLeft;
 	public bool hasAddedTopLeft;
-
-/*	public static bool topFree;
-	public static bool topRightFree;
-	public static bool rightFree;
-	public static bool botRightFree;
-	public static bool botFree;
-	public static bool botLeftFree;*/
-	
-	
 	
 	public List<GameObject> otherBuildings;
-	//public static int buildingCounter;
 	
-	// Use this for initialization
 	void Start ()
 	{
 		hasAddedTop = false;
@@ -42,9 +31,9 @@ public class BuildingCount : MonoBehaviour
 		otherBuildings = new List<GameObject>();
 	}
 	
-	// Update is called once per frame
 	void FixedUpdate ()
 	{
+		//Same as road counter, sends rays out in each direction checking what is there, used for the updated "Board" for Game of Life
 		RaycastHit hit;
 
 		Vector3 topRight = new Vector3(1, 0, 1);

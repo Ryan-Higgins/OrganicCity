@@ -6,27 +6,30 @@ using UnityEngine.Experimental.PlayerLoop;
 public class RoadManager : MonoBehaviour
 {
 
+	//segments that can be spawned as needed, ended up only using straight and corner
 	public GameObject straightRoad;
 	public GameObject cornerRoad;
 	public GameObject threeRoad;
 	public GameObject crossRoad;
 
-	public bool topDone;
-	public bool rightDone;
-	public bool botDone;
-	public bool leftDone;
+	//collection of bools both checking if it has counted a direction and if its road or building
+	private bool topDone;
+	private bool rightDone;
+	private bool botDone;
+	private bool leftDone;
 	private bool topChecked;
 	private bool rightChecked;
 	private bool botChecked;
 	private bool leftChecked;
-	public bool hasSpawned;
 
+	//parent for neatness
 	private GameObject roadParent;
-	public List<GameObject> roads;
+	//used a list to better keep track of where the rays were hitting and in case I wanted to access the things they are hitting
+	private List<GameObject> roads;
 
 	public int count;
 
-	// Use this for initialization
+
 	void Start ()
 	{
 		
@@ -41,13 +44,12 @@ public class RoadManager : MonoBehaviour
 		rightChecked = false;
 		botChecked = false;
 		leftChecked = false;
-		hasSpawned = false;
 		
 		roads = new List<GameObject>();
 		
 	}
 	
-	// Update is called once per frame
+
 	void Count ()
 	{
 			Debug.DrawRay(transform.position, Vector3.forward);
@@ -58,6 +60,7 @@ public class RoadManager : MonoBehaviour
 		Ray down = new Ray(transform.position, Vector3.back);
 		Ray left = new Ray(transform.position, Vector3.left);
 
+		//Sends raycasts out all around the roads to check if there are roads beside it
 		if (Physics.Raycast(up, out hit) && !topDone)
 		{
 			if (hit.transform.gameObject.CompareTag("Road"))
@@ -120,6 +123,7 @@ public class RoadManager : MonoBehaviour
 	void Build()
 	{
 		count = roads.Count;
+		//had 3 and 4 road segments but didn't behave how i wanted it to, can disable this if want to see how it looks, I don't like it personally
 		/*if (count == 4)
 			{
 				if (topChecked && rightChecked && botChecked && leftChecked && !gameObject.CompareTag("Clone"))
@@ -172,6 +176,7 @@ public class RoadManager : MonoBehaviour
 			}*/
 			/*else*/ if (count == 2)
 			{
+				//checks where the other roads are and either turns, adds a corner or stretches to reach them and connect
 				if (topChecked && botChecked && !gameObject.CompareTag("Clone"))
 				{
 					GameObject straightClone = Instantiate(straightRoad, gameObject.transform.position,
@@ -224,7 +229,6 @@ public class RoadManager : MonoBehaviour
 					cornerClone.transform.SetParent(roadParent.transform);
 					cornerClone.transform.Rotate(Vector3.up, -90);
 					cornerClone.tag = "Clone";
-					hasSpawned = true;
 					Destroy(gameObject);
 				}
 			}
@@ -242,6 +246,7 @@ public class RoadManager : MonoBehaviour
 
 	void OnCollisionStay(Collision other)
 	{
+		//checks if building is spawned on top and deletes the road
 		if (other.transform.gameObject.CompareTag("Building"))
 		{
 			Destroy(gameObject);
@@ -250,6 +255,7 @@ public class RoadManager : MonoBehaviour
 
 	IEnumerator Delay()
 	{
+		//delay waiting for the buildings to finish to avoid counting issues
 		yield return new WaitForSeconds(1f);
 		Count();
 		yield return new WaitForSeconds(1f);

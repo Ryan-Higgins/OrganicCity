@@ -11,9 +11,10 @@ public class BuildingManager : MonoBehaviour
 	public GameObject buildingPrefab;
 	public GameObject buildingParent;
 
+	//list so i can check what rays are hitting and also in case i want to access them
 	private BuildingCount myBuildingCount;
 
-	// Use this for initialization
+
 	void Start ()
 	{
 		myBuildingCount = GetComponent<BuildingCount>();
@@ -21,14 +22,17 @@ public class BuildingManager : MonoBehaviour
 		buildingParent = GameObject.Find("Building Parent");
 	}
 	
-	// Update is called once per frame
+
 	void Update ()
 	{
+		myBuildingCount = GetComponent<BuildingCount>();
 		buildingCount = myBuildingCount.otherBuildings.Count;
+		//Checks the building count and behaves according to Conway's game of life rules
 		if (buildingCount == 3)
 		{
 			int dir = Random.Range(0, 8);
 			bool hasSpawned = false;
+			//checks a direction around the building and if anything has been added there already, spawns a building if conditions are met
 			if (dir == 0 && !myBuildingCount.hasAddedTop)
 			{
 				GameObject buildingClone = Instantiate(buildingPrefab,new Vector3(gameObject.transform.position.x
@@ -88,6 +92,7 @@ public class BuildingManager : MonoBehaviour
 			}
 		} else if (buildingCount > 4)
 		{
+			//Deletes the building a spawns a road in its place
 			Destroy(gameObject);
 			GameObject roadClone = Instantiate(roadPrefab,new Vector3(gameObject.transform.position.x
 				, 0, gameObject.transform.position.z)
@@ -96,6 +101,7 @@ public class BuildingManager : MonoBehaviour
 			
 		} else if (buildingCount < 1)
 		{
+			//Same as above
 			Destroy(gameObject);
 			GameObject roadClone = Instantiate(roadPrefab,new Vector3(gameObject.transform.position.x
 				, 0, gameObject.transform.position.z)
@@ -103,9 +109,19 @@ public class BuildingManager : MonoBehaviour
 			roadClone.transform.parent = roadParent.transform;
 			
 		}
-		else if (buildingCount == 2 && transform.localScale.y < 50 || buildingCount == 3 && transform.localScale.y < 50)
+		else if (buildingCount == 2 && transform.localScale.y <  Random.Range(10f, 61f) || buildingCount == 3 && transform.localScale.y <  Random.Range(10f, 61f))
 		{
-			gameObject.transform.localScale = new Vector3(transform.localScale.x, transform.localScale.y + ((float) Random.Range(0,3)), transform.localScale.z);
+			//Grows the building to a random limit by a random factor
+			gameObject.transform.localScale = new Vector3(transform.localScale.x, transform.localScale.y + Random.Range(0f, 2f), transform.localScale.z);
+			gameObject.transform.position = new Vector3(transform.position.x, 5, transform.position.z);
+		}
+	}
+
+	void OnCollisionStay(Collision other)
+	{
+		if (other.gameObject.CompareTag("Building"))
+		{
+			Destroy(other.gameObject);
 		}
 	}
 }

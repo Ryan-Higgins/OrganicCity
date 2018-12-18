@@ -15,8 +15,21 @@ public class GridBuilder : MonoBehaviour
 	private int cellWidth;
 	private bool[,] cityGrid;
 	
-	// Use this for initialization
+	//Standard Game of life builder, went with grid to cut down on calculations
 	void Start ()
+	{
+		Build();
+	}
+
+	void Update()
+	{
+		if (Input.GetKeyDown(KeyCode.R))
+		{
+			Build();
+		}
+	}
+
+	void Build()
 	{
 		cityGrid = new bool[rowCount,colCount];
 		cellWidth = 10;
@@ -36,26 +49,21 @@ public class GridBuilder : MonoBehaviour
 
 				if (cityGrid[i, j])
 				{
-					
+					//Spawns buildings or roads depending on true or false, random colour for buildings
 					GameObject buildingClone = Instantiate(buildingPrefab,new Vector3(gameObject.transform.position.x + j * cellWidth
-						, 5, gameObject.transform.position.z - i * cellWidth)
+							, 5, gameObject.transform.position.z - i * cellWidth)
 						, gameObject.transform.rotation);
 					buildingClone.transform.parent = buildingParent.transform;
+					buildingClone.GetComponentInChildren<MeshRenderer>().material.color = Random.ColorHSV(0f, 1f, 1f, 1f, 0.5f, 1f);
 				}
 				else
 				{
 					GameObject roadClone = Instantiate(roadPrefab,new Vector3(gameObject.transform.position.x + j * cellWidth
-						, 0, gameObject.transform.position.z - i * cellWidth)
+							, 0, gameObject.transform.position.z - i * cellWidth)
 						, gameObject.transform.rotation);
 					roadClone.transform.parent = roadParent.transform;
 				}
 			}
 		}
-	}
-	
-	// Update is called once per frame
-	void Update()
-	{
-
 	}
 }

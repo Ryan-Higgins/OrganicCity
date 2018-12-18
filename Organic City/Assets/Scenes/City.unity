@@ -285,9 +285,11 @@ GameObject:
   - component: {fileID: 534669905}
   - component: {fileID: 534669904}
   - component: {fileID: 534669903}
+  - component: {fileID: 534669906}
+  - component: {fileID: 534669907}
   m_Layer: 0
   m_Name: Main Camera
-  m_TagString: Untagged
+  m_TagString: MainCamera
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -346,12 +348,36 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 534669902}
   m_LocalRotation: {x: 0.41544595, y: -0, z: -0, w: 0.9096179}
-  m_LocalPosition: {x: 0, y: 480, z: -657}
+  m_LocalPosition: {x: 0, y: 294, z: -400}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 49.095, y: 0, z: 0}
+--- !u!114 &534669906
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 534669902}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2bc3f2a32f94f394b9231c1eca4dcc22, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  buildingPrefab: {fileID: 1184317636149126, guid: b882bcaabdc39de47b9a22ad5ba48e3e,
+    type: 2}
+--- !u!114 &534669907
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 534669902}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 664f7de22607bae4281a15e44ec260a0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &826807440
 GameObject:
   m_ObjectHideFlags: 0
@@ -399,7 +425,7 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RenderingLayerMask: 4294967295
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 22c282efd05f8384cb1b76b888fdded5, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -537,12 +563,12 @@ Prefab:
     - target: {fileID: 114994104754759136, guid: c467e83c2f3f7cc498fafe10e53024cf,
         type: 2}
       propertyPath: rowCount
-      value: 10
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 114994104754759136, guid: c467e83c2f3f7cc498fafe10e53024cf,
         type: 2}
       propertyPath: colCount
-      value: 10
+      value: 15
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c467e83c2f3f7cc498fafe10e53024cf, type: 2}

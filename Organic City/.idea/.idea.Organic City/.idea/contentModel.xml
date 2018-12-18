@@ -7,8 +7,10 @@
       <e p="Assembly-CSharp.csproj" t="IncludeRecursive" />
       <e p="Assets" t="Include">
         <e p="Scripts" t="Include">
+          <e p="BuildBuildings.cs" t="Include" />
           <e p="BuildingCount.cs" t="Include" />
           <e p="BuildingManager.cs" t="Include" />
+          <e p="CameraMove.cs" t="Include" />
           <e p="GridBuilder.cs" t="Include" />
           <e p="RoadBuilder.cs" t="Include" />
           <e p="RoadManager.cs" t="Include" />
