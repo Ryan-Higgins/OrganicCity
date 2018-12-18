@@ -58,19 +58,6 @@ public class RoadManager : MonoBehaviour
 		Ray down = new Ray(transform.position, Vector3.back);
 		Ray left = new Ray(transform.position, Vector3.left);
 
-		count = 0;
-		topDone = false;
-		rightDone = false;
-		botDone = false;
-		leftDone = false;
-		topChecked = false;
-		rightChecked = false;
-		botChecked = false;
-		leftChecked = false;
-		hasSpawned = false;
-		
-		roads = new List<GameObject>();
-
 		if (Physics.Raycast(up, out hit) && !topDone)
 		{
 			if (hit.transform.gameObject.CompareTag("Road"))
@@ -130,10 +117,10 @@ public class RoadManager : MonoBehaviour
 			
 		}
 
-	/*void Build()
+	void Build()
 	{
 		count = roads.Count;
-		if (count == 4)
+		/*if (count == 4)
 			{
 				if (topChecked && rightChecked && botChecked && leftChecked && !gameObject.CompareTag("Clone"))
 				{
@@ -144,8 +131,8 @@ public class RoadManager : MonoBehaviour
 					hasSpawned = true;
 					Destroy(gameObject);
 				}
-			}
-			else if (count == 3)
+			}*/
+			/*else if (count == 3)
 			{
 				if (topChecked && rightChecked && botChecked && !gameObject.CompareTag("Clone"))
 				{
@@ -182,58 +169,55 @@ public class RoadManager : MonoBehaviour
 					threeClone.tag = "Clone";
 					Destroy(gameObject);
 				}
-			}
-			else if (count == 2)
+			}*/
+			/*else*/ if (count == 2)
 			{
-				if (topChecked && botChecked && !hasSpawned && !gameObject.CompareTag("Clone"))
+				if (topChecked && botChecked && !gameObject.CompareTag("Clone"))
 				{
 					GameObject straightClone = Instantiate(straightRoad, gameObject.transform.position,
 						gameObject.transform.rotation);
 					straightClone.transform.SetParent(roadParent.transform);
 					straightClone.tag = "Clone";
-					hasSpawned = true;
 					Destroy(gameObject);
 				}
-				else if (leftChecked && rightChecked && !hasSpawned && !gameObject.CompareTag("Clone"))
+				else if (leftChecked && rightChecked && !gameObject.CompareTag("Clone"))
 				{
 					GameObject straightClone = Instantiate(straightRoad, gameObject.transform.position,
 						gameObject.transform.rotation);
 					straightClone.transform.Rotate(Vector3.up, 90);
 					straightClone.transform.SetParent(roadParent.transform);
+					straightClone.transform.localScale = new Vector3(straightClone.transform.localScale.x,
+						straightClone.transform.localScale.y, straightClone.transform.localScale.z + 1);
 					straightClone.tag = "Clone";
-					hasSpawned = true;
 					Destroy(gameObject);
 				}
-				else if (topChecked && rightChecked && !hasSpawned && !gameObject.CompareTag("Clone"))
+				else if (topChecked && rightChecked && !gameObject.CompareTag("Clone"))
 				{
 					GameObject cornerClone = Instantiate(cornerRoad, gameObject.transform.position,
 						gameObject.transform.rotation);
 					cornerClone.transform.SetParent(roadParent.transform);
 					cornerClone.tag = "Clone";
-					hasSpawned = true;
 					Destroy(gameObject);
 				}
-				else if (rightChecked && botChecked && !hasSpawned && !gameObject.CompareTag("Clone"))
+				else if (rightChecked && botChecked && !gameObject.CompareTag("Clone"))
 				{
 					GameObject cornerClone = Instantiate(cornerRoad, gameObject.transform.position,
 						gameObject.transform.rotation);
 					cornerClone.transform.SetParent(roadParent.transform);
 					cornerClone.transform.Rotate(Vector3.up, 90);
 					cornerClone.tag = "Clone";
-					hasSpawned = true;
 					Destroy(gameObject);
 				}
-				else if (botChecked && leftChecked && !hasSpawned && !gameObject.CompareTag("Clone"))
+				else if (botChecked && leftChecked && !gameObject.CompareTag("Clone"))
 				{
 					GameObject cornerClone = Instantiate(cornerRoad, gameObject.transform.position,
 						gameObject.transform.rotation);
 					cornerClone.transform.SetParent(roadParent.transform);
 					cornerClone.transform.Rotate(Vector3.up, 180);
 					cornerClone.tag = "Clone";
-					hasSpawned = true;
 					Destroy(gameObject);
 				}
-				else if (leftChecked && topChecked && !hasSpawned && !gameObject.CompareTag("Clone"))
+				else if (leftChecked && topChecked && !gameObject.CompareTag("Clone"))
 				{
 					GameObject cornerClone = Instantiate(cornerRoad, gameObject.transform.position,
 						gameObject.transform.rotation);
@@ -244,36 +228,16 @@ public class RoadManager : MonoBehaviour
 					Destroy(gameObject);
 				}
 			}
-			else if (count == 1)
-			{
-
-			}*/
-	//}
+	}
 
 	void LateUpdate()
 	{
-		//StartCoroutine("Delay");
+		StartCoroutine("Delay");
 	}
 
 	void Update()
 	{
-		Count();
-		if (rightChecked)
-		{
-			GameObject roadClone = Instantiate(straightRoad, gameObject.transform);
-			roadClone.transform.Rotate(Vector3.up, 90);
-		}else if (botChecked)
-		{
-			GameObject roadClone = Instantiate(straightRoad, gameObject.transform);
-			roadClone.transform.Rotate(Vector3.up, 180);
-		} else if (leftChecked)
-		{
-			GameObject roadClone = Instantiate(straightRoad, gameObject.transform);
-			roadClone.transform.Rotate(Vector3.up, -90);
-		} else if (topChecked)
-		{
-			GameObject roadClone = Instantiate(straightRoad, gameObject.transform);
-		}
+		
 	}
 
 	void OnCollisionStay(Collision other)
@@ -286,10 +250,9 @@ public class RoadManager : MonoBehaviour
 
 	IEnumerator Delay()
 	{
-		yield return new WaitForSeconds(5f);
-		//Count();
-		yield return new WaitForSeconds(5f);
-		//Build();
-		yield return new WaitForSeconds(5f);
+		yield return new WaitForSeconds(1f);
+		Count();
+		yield return new WaitForSeconds(1f);
+		Build();
 	}
  }
