@@ -65,36 +65,60 @@ public class BuildingCount : MonoBehaviour
 
 		if (Physics.Raycast(up, out hit, transform.localScale.x) && !hasAddedTop)
 		{
-			hasAddedTop = true;
-			otherBuildings.Add(hit.transform.gameObject);
+			if (hit.transform.CompareTag("Building"))
+			{
+				hasAddedTop = true;
+				otherBuildings.Add(hit.transform.gameObject);
+			}
 		} else if (Physics.Raycast(upRight, out hit, (transform.localScale.x + transform.localScale.z)/2) && !hasAddedTopRight)
 		{
-			hasAddedTopRight = true;
-			otherBuildings.Add(hit.transform.gameObject);
+			if (hit.transform.CompareTag("Building"))
+			{
+				hasAddedTopRight = true;
+				otherBuildings.Add(hit.transform.gameObject);
+			}
 		} else if (Physics.Raycast(right, out hit, transform.localScale.x) && !hasAddedRight)
 		{
-			hasAddedRight = true;
-			otherBuildings.Add(hit.transform.gameObject);
+			if (hit.transform.CompareTag("Building"))
+			{
+				hasAddedRight = true;
+				otherBuildings.Add(hit.transform.gameObject);
+			}
 		} else if (Physics.Raycast(downRight, out hit, (transform.localScale.x + transform.localScale.z)/2) && !hasAddedBotRight)
 		{
-			hasAddedBotRight = true;
-			otherBuildings.Add(hit.transform.gameObject);
+			if (hit.transform.CompareTag("Building"))
+			{
+				hasAddedBotRight = true;
+				otherBuildings.Add(hit.transform.gameObject);
+			}
 		} else if (Physics.Raycast(down, out hit, transform.localScale.x) && !hasAddedBot)
 		{
-			hasAddedBot = true;
-			otherBuildings.Add(hit.transform.gameObject);
+			if (hit.transform.CompareTag("Building"))
+			{
+				hasAddedBot = true;
+				otherBuildings.Add(hit.transform.gameObject);
+			}
 		} else if (Physics.Raycast(downLeft, out hit, (transform.localScale.x + transform.localScale.z)/2) && !hasAddedBotLeft)
 		{
-			hasAddedBotLeft = true;
-			otherBuildings.Add(hit.transform.gameObject);
+			if (hit.transform.CompareTag("Building"))
+			{
+				hasAddedBotLeft = true;
+				otherBuildings.Add(hit.transform.gameObject);
+			}
 		} else if (Physics.Raycast(left, out hit, transform.localScale.x) && !hasAddedLeft)
 		{
-			hasAddedLeft = true;
-			otherBuildings.Add(hit.transform.gameObject);
+			if (hit.transform.CompareTag("Building"))
+			{
+				hasAddedLeft = true;
+				otherBuildings.Add(hit.transform.gameObject);
+			}
 		} else if (Physics.Raycast(upLeft, out hit, (transform.localScale.x + transform.localScale.z)/2) && !hasAddedTopLeft)
 		{
-			hasAddedTopLeft = true;
-			otherBuildings.Add(hit.transform.gameObject);
+			if (hit.transform.CompareTag("Building"))
+			{
+				hasAddedTopLeft = true;
+				otherBuildings.Add(hit.transform.gameObject);
+			}
 		}
 
 		//buildingCounter = otherBuildings.Count;

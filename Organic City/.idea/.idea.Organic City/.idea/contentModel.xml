@@ -11,6 +11,7 @@
           <e p="BuildingManager.cs" t="Include" />
           <e p="GridBuilder.cs" t="Include" />
           <e p="RoadBuilder.cs" t="Include" />
+          <e p="RoadManager.cs" t="Include" />
         </e>
       </e>
       <e p="Library" t="ExcludeRecursive" />
