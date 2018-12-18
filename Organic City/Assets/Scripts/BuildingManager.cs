@@ -10,7 +10,7 @@ public class BuildingManager : MonoBehaviour
 	public GameObject roadParent;
 	public GameObject buildingPrefab;
 	public GameObject buildingParent;
-	
+
 	private BuildingCount myBuildingCount;
 
 	// Use this for initialization

@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Building
   - Road
+  - Clone
   layers:
   - Default
   - TransparentFX
