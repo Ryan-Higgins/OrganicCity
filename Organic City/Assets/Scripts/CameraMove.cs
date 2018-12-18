@@ -17,10 +17,9 @@ public class CameraMove : MonoBehaviour {
         lastMouse = new Vector3(transform.eulerAngles.x + lastMouse.x , transform.eulerAngles.y + lastMouse.y, 0);
         transform.eulerAngles = lastMouse;
         lastMouse =  Input.mousePosition;
-        //Mouse  camera angle done.  
+        //Mouse camera angle
        
         //Keyboard commands
-        float f = 0.0f;
         Vector3 p = GetBaseInput();
         if (Input.GetKey (KeyCode.LeftShift)){
             totalRun += Time.deltaTime;

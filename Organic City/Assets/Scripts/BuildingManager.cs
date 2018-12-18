@@ -31,7 +31,6 @@ public class BuildingManager : MonoBehaviour
 		if (buildingCount == 3)
 		{
 			int dir = Random.Range(0, 8);
-			bool hasSpawned = false;
 			//checks a direction around the building and if anything has been added there already, spawns a building if conditions are met
 			if (dir == 0 && !myBuildingCount.hasAddedTop)
 			{
@@ -39,56 +38,48 @@ public class BuildingManager : MonoBehaviour
 					, 5, gameObject.transform.position.z + gameObject.transform.localScale.z)
 					, gameObject.transform.rotation);
 				buildingClone.transform.parent = buildingParent.transform;
-				hasSpawned = true;
 			} else if (dir == 1 && !myBuildingCount.hasAddedTopRight)
 			{
 				GameObject buildingClone = Instantiate(buildingPrefab,new Vector3(gameObject.transform.position.x + gameObject.transform.localScale.x
 					, 5, gameObject.transform.position.z + gameObject.transform.localScale.z)
 					, gameObject.transform.rotation);
 				buildingClone.transform.parent = buildingParent.transform;
-				hasSpawned = true;
 			} else if (dir == 2 && !myBuildingCount.hasAddedRight)
 			{
 				GameObject buildingClone = Instantiate(buildingPrefab,new Vector3(gameObject.transform.position.x + gameObject.transform.localScale.x
 					, 5, gameObject.transform.position.z)
 					, gameObject.transform.rotation);
 				buildingClone.transform.parent = buildingParent.transform;
-				hasSpawned = true;
 			} else if (dir == 3 && !myBuildingCount.hasAddedBotRight)
 			{
 				GameObject buildingClone = Instantiate(buildingPrefab,new Vector3(gameObject.transform.position.x + gameObject.transform.localScale.x
 					, 5, gameObject.transform.position.z - gameObject.transform.localScale.z)
 					, gameObject.transform.rotation);
 				buildingClone.transform.parent = buildingParent.transform;
-				hasSpawned = true;
 			} else if (dir == 4 && !myBuildingCount.hasAddedBot)
 			{
 				GameObject buildingClone = Instantiate(buildingPrefab,new Vector3(gameObject.transform.position.x
 					, 5, gameObject.transform.position.z - gameObject.transform.localScale.z)
 					, gameObject.transform.rotation);
 				buildingClone.transform.parent = buildingParent.transform;
-				hasSpawned = true;
 			} else if (dir == 5 && !myBuildingCount.hasAddedBotLeft)
 			{
 				GameObject buildingClone = Instantiate(buildingPrefab,new Vector3(gameObject.transform.position.x - gameObject.transform.localScale.x
 					, 5, gameObject.transform.position.z - gameObject.transform.localScale.z)
 					, gameObject.transform.rotation);
 				buildingClone.transform.parent = buildingParent.transform;
-				hasSpawned = true;
 			} else if (dir == 6 && !myBuildingCount.hasAddedLeft)
 			{
 				GameObject buildingClone = Instantiate(buildingPrefab,new Vector3(gameObject.transform.position.x - gameObject.transform.localScale.x
 					, 5, gameObject.transform.position.z)
 					, gameObject.transform.rotation);
 				buildingClone.transform.parent = buildingParent.transform;
-				hasSpawned = true;
 			} else if (dir == 7 && !myBuildingCount.hasAddedTopLeft)
 			{
 				GameObject buildingClone = Instantiate(buildingPrefab,new Vector3(gameObject.transform.position.x - gameObject.transform.localScale.x
 					, 5, gameObject.transform.position.z + gameObject.transform.localScale.z)
 					, gameObject.transform.rotation);
 				buildingClone.transform.parent = buildingParent.transform;
-				hasSpawned = true;
 			}
 		} else if (buildingCount > 4)
 		{
