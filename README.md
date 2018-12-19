@@ -44,9 +44,13 @@ A lot of how the city works is through a 2D Array of bools which are itterated t
 
 Key:
 W,A,S,D,Q,E - Camera movement controls.
+
 Shift, Space - Extra Camera controls.
+
 Left Click (On Road) - Spawns a building in its place.
+
 R - Resets the gird on top of the current one.
+
 Mouse - Controls camera direction.
 
 All the stuff aside from the camera movement and Conway's Game of Life was done off the top of my head, I took the camera thing from on script online and then edited to suit my purposes, the game of life is taken from the script I wrote in processing and then just edited for unity. 
