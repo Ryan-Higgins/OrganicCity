@@ -12,13 +12,16 @@ public class CameraMove : MonoBehaviour {
     private float totalRun= 1.0f;
      
     void Update () {
-        lastMouse = Input.mousePosition - lastMouse ;
-        lastMouse = new Vector3(-lastMouse.y * camSens, lastMouse.x * camSens, 0 );
-        lastMouse = new Vector3(transform.eulerAngles.x + lastMouse.x , transform.eulerAngles.y + lastMouse.y, 0);
-        transform.eulerAngles = lastMouse;
-        lastMouse =  Input.mousePosition;
+
+
+        //Removed due to poor design combined with the click to spawn buildings
+            /*lastMouse = Input.mousePosition - lastMouse;
+            lastMouse = new Vector3(-lastMouse.y * camSens, lastMouse.x * camSens, 0);
+            lastMouse = new Vector3(transform.eulerAngles.x + lastMouse.x, transform.eulerAngles.y + lastMouse.y, 0);
+            transform.eulerAngles = lastMouse;
+            lastMouse = Input.mousePosition;*/
         //Mouse camera angle
-       
+ 
         //Keyboard commands
         Vector3 p = GetBaseInput();
         if (Input.GetKey (KeyCode.LeftShift)){
