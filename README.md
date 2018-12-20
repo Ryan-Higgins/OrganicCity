@@ -54,6 +54,8 @@ Left Click (On Road) - Spawns a building in its place.
 
 R - Resets the gird on top of the current one.
 
+If you run it in the unity editor you can change the grid size from the script on the City Manager game object, larger city sizes do affect performance due to number of calculations. You can also slow down the time step in the project time settings but once again this affects performance.
+
 All the stuff aside from the camera movement and Conway's Game of Life was done off the top of my head, I took the camera thing from on script online and then edited to suit my purposes, the game of life is taken from the script I wrote in processing and then just edited for unity. 
 
 I think I am most proud of the roads, having a road system that actually looks like a city grid was the best thing for me. Seeing it form that road network was my favorite moment of the project.
